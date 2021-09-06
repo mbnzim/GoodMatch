@@ -16,7 +16,10 @@ app.use(
 );
 
 const AddTwoNumbers = (name1, name2) => {
-  let stringListValues = matchTwoNames(name1, name2);
+  let stringListValues = matchTwoNames(
+    name1.toLowerCase(),
+    name2.toLowerCase()
+  );
   const convertToNumber = Number(stringListValues);
   let valueList = Array.from(convertToNumber.toString()).map(Number);
   let listchange = [];
@@ -58,7 +61,7 @@ const AddTwoNumbers = (name1, name2) => {
 };
 
 const matchTwoNames = (name1, name2) => {
-  const string = `${name1} matches ${name2}`;
+  const string = `${name1.toLowerCase()} matches ${name2.toLowerCase()}`;
   const str = string.replace(/ +/g, '');
   const myArr = str.split('');
   let count = 1;
@@ -184,7 +187,7 @@ app.post('/single', async (req, res, next) => {
 
 app.get('/csvToArray', async (req, res, next) => {
   convertCVSToArray();
- res.send('hello world');
+  //  res.send('hello world');
   //res.redirect('/');
   // res.send('Error uploading file');
 });
