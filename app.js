@@ -185,7 +185,7 @@ app.post('/single', async (req, res, next) => {
 app.get('/csvToArray', async (req, res, next) => {
   convertCVSToArray();
  res.send('hello world');
-  res.redirect('/');
+  //res.redirect('/');
   // res.send('Error uploading file');
 });
 
